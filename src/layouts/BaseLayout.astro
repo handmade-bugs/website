@@ -1,0 +1,36 @@
+---
+import PageHeader from "../components/PageHeader.astro";
+import PageMetadata from "../components/PageMetadata.astro";
+
+interface Props {
+  meta: {
+    title: string;
+    description: string;
+  };
+}
+
+const { meta } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <PageMetadata title={meta.title} description={meta.description} />
+  </head>
+
+  <body>
+    <div class="container">
+      <PageHeader />
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  .container {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+</style>
